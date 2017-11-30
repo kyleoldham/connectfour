@@ -48,7 +48,6 @@ public class ConnectFour {
    }
   
   public static void printPattern(String[][] brd) {
-  // Write your code here to print an updated pattern
     for (int i = 0; i < brd.length; i++) {
       for (int j = 0; j < brd[i].length; j++) {
         System.out.print(brd[i][j]);
