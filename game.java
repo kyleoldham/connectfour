@@ -36,16 +36,16 @@ public class ConnectFour {
     /* This method prints the first empty pattern for the game
     DON'T MODIFY THIS METHOD
     */
-      String[][] f = new String[7][15];
-      for (int i =0;i<f.length;i++) {
-        for (int j =0;j<f[i].length;j++) {
-          if (j% 2 == 0) f[i][j] ="|";
-          else f[i][j] = " ";
-          if (i==6) f[i][j]= "-";
-          }
-        }
-      return f;  
-   }
+    String[][] f = new String[7][15];
+    for (int i =0;i<f.length;i++) {
+      for (int j =0;j<f[i].length;j++) {
+        if (j% 2 == 0) f[i][j] ="|";
+        else f[i][j] = " ";
+        if (i==6) f[i][j]= "-";
+      }
+    }
+    return f;  
+  }
   
   public static void printPattern(String[][] brd) {
     for (int i = 0; i < brd.length; i++) {
