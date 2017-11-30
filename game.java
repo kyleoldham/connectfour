@@ -1,4 +1,4 @@
-package connectfour;
+//package connectfour;
 import java.util.Scanner;
 
 public class ConnectFour {  
@@ -21,9 +21,7 @@ public class ConnectFour {
       dropDisk(board, userInput , player2);
       printPattern(board);  
           
-
       String win = checkWinner(board);
-      /* */
       if (win != null) {
         if (win == "R") {
             System.out.println("Red won.");
@@ -31,7 +29,6 @@ public class ConnectFour {
             System.out.println("Yellow won.");
         }
       bl = false;
-      /* */
     }
   }
     
@@ -48,7 +45,7 @@ public class ConnectFour {
           }
         }
       return f;  
-   } // end of createEmptyBoard 
+   }
   
   public static void printPattern(String[][] brd) {
   // Write your code here to print an updated pattern
@@ -58,29 +55,27 @@ public class ConnectFour {
       }
     System.out.println();
     }
-  } // end of printPattern
-  
-  
- public static void dropDisk(String[][] brd, int positin, int player) {
-  if (player == 1) {
-  int c = 2 * positin + 1;
-  
-  for (int i = 5; i >= 0; i--) {
-    if (brd[i][c] == " ") {
-      brd[i][c] = "R";
-      break;
-    }
   }
-  } else {
-    int c = 2 * positin + 1;
+  
+  public static void dropDisk(String[][] brd, int positin, int player) {
+    if (player == 1) {
+    int c = 2 * positin + 1;  
     for (int i = 5; i >= 0; i--) {
       if (brd[i][c] == " ") {
-        brd[i][c] = "Y";
-        break;
+       brd[i][c] = "R";
+       break;
+      }
+    }
+    } else {
+      int c = 2 * positin + 1;
+      for (int i = 5; i >= 0; i--) {
+        if (brd[i][c] == " ") {
+          brd[i][c] = "Y";
+          break;
+        }
       }
     }
   }
-} // end of dropDisk
    
   public static String checkWinner(String[][] brd) {
     for (int i = 0; i < 6; i++) {
@@ -118,5 +113,5 @@ public class ConnectFour {
           }
         }
       return null;
-      } // end of checkWinner
-} // end of class
+      }
+}
