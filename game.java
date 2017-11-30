@@ -26,8 +26,6 @@ public class ConnectFour {
       /*
       Write code to announce  if there is  winner and end the game
       */
-
-      
     }
   }
 
@@ -55,6 +53,7 @@ public class ConnectFour {
   public static void dropDisk(String[][] brd, int positin, int player) {  
     /*Write your code to drop the disk at the position the user entered 
     depending on which player*/ 
+      
   } // end of dropDisk
    
   public static String checkWinner(String[][] brd) {     
