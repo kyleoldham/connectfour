@@ -1,7 +1,7 @@
+package connectfour;
 import java.util.Scanner;
 
-public class ConnectFour {
-    
+public class ConnectFour {  
   public static void main (String[] args) {
     String[][] board = createEmptyBoard();
     Scanner input = new Scanner(System.in);
@@ -23,12 +23,18 @@ public class ConnectFour {
           
 
       String win = checkWinner(board);
-      /*
-      Write code to announce  if there is  winner and end the game
-      */
+      /* */
+      if (win != null) {
+        if (win == "R") {
+            System.out.println("Red won.");
+        } else if (win == "Y") {
+            System.out.println("Yellow won.");
+        }
+      bl = false;
+      /* */
     }
   }
-
+    
   public static String[][] createEmptyBoard() {
     /* This method prints the first empty pattern for the game
     DON'T MODIFY THIS METHOD
@@ -45,22 +51,72 @@ public class ConnectFour {
    } // end of createEmptyBoard 
   
   public static void printPattern(String[][] brd) {
-  //Write your code here to print an updated pattern
-  
+  // Write your code here to print an updated pattern
+    for (int i = 0; i < brd.length; i++) {
+      for (int j = 0; j < brd[i].length; j++) {
+        System.out.print(brd[i][j]);
+      }
+    System.out.println();
+    }
   } // end of printPattern
   
   
-  public static void dropDisk(String[][] brd, int positin, int player) {  
-    /*Write your code to drop the disk at the position the user entered 
-    depending on which player*/ 
-      
-  } // end of dropDisk
+ public static void dropDisk(String[][] brd, int positin, int player) {
+  if (player == 1) {
+  int c = 2 * positin + 1;
+  
+  for (int i = 5; i >= 0; i--) {
+    if (brd[i][c] == " ") {
+      brd[i][c] = "R";
+      break;
+    }
+  }
+  } else {
+    int c = 2 * positin + 1;
+    for (int i = 5; i >= 0; i--) {
+      if (brd[i][c] == " ") {
+        brd[i][c] = "Y";
+        break;
+      }
+    }
+  }
+} // end of dropDisk
    
-  public static String checkWinner(String[][] brd) {     
-    /*Write your code to check if there is a winner. If there is, then
-    return the charaster of the winners color( withe R or Y)
-    */
-    String str = " ";
-    return str;
-  } // end of checkWinner
+  public static String checkWinner(String[][] brd) {
+    for (int i = 0; i < 6; i++) {
+      for (int j = 0; j < 7; j += 2) {
+        if ((brd[i][j + 1] != " ") && (brd[i][j + 3] != " ") && (brd[i][j + 5] != " ") && (brd[i][j + 7] != " ")
+        && ((brd[i][j + 1] == brd[i][j + 3]) && (brd[i][j + 3] == brd[i][j + 5])
+        && (brd[i][j + 5] == brd[i][j + 7])))
+          return brd[i][j + 1];
+        }
+      }
+      for (int i = 1; i < 15; i += 2) {
+        for (int j = 0; j < 3; j++) {
+          if ((brd[j][i] != " ") && (brd[j + 1][i] != " ") && (brd[j + 2][i] != " ") && (brd[j + 3][i] != " ")
+          && ((brd[j][i] == brd[j + 1][i]) && (brd[j + 1][i] == brd[j + 2][i])
+          && (brd[j + 2][i] == brd[j + 3][i])))
+            return brd[j][i];
+          }
+        }
+      for (int i = 0; i < 3; i++) {
+        for (int j = 1; j < 9; j += 2) {
+          if ((brd[i][j] != " ") && (brd[i + 1][j + 2] != " ") && (brd[i + 2][j + 4] != " ")
+          && (brd[i + 3][j + 6] != " ")
+          && ((brd[i][j] == brd[i + 1][j + 2]) && (brd[i + 1][j + 2] == brd[i + 2][j + 4])
+          && (brd[i + 2][j + 4] == brd[i + 3][j + 6])))
+            return brd[i][j];
+          }
+        }
+      for (int i = 0; i < 3; i++) {
+        for (int j = 7; j < 15; j += 2) {
+          if ((brd[i][j] != " ") && (brd[i + 1][j - 2] != " ") && (brd[i + 2][j - 4] != " ")
+          && (brd[i + 3][j - 6] != " ")
+          && ((brd[i][j] == brd[i + 1][j - 2]) && (brd[i + 1][j - 2] == brd[i + 2][j - 4])
+          && (brd[i + 2][j - 4] == brd[i + 3][j - 6])))
+            return brd[i][j];
+          }
+        }
+      return null;
+      } // end of checkWinner
 } // end of class
