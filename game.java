@@ -1,4 +1,3 @@
-package connectfour;
 import java.util.Scanner;
 
 public class ConnectFour {  
@@ -29,9 +28,10 @@ public class ConnectFour {
             System.out.println("Yellow won.");
         }
       bl = false;
+      }
     }
   }
-    
+  
   public static String[][] createEmptyBoard() {
     /* This method prints the first empty pattern for the game
     DON'T MODIFY THIS METHOD
